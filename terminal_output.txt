@@ -1,0 +1,136 @@
+C:\WRDAPP\GSFLOW-GRASS-master>py -2.7 domain_builder\buildDomainGRASS.py C:\WRDAPP\GSFLOW-GRASS-master\Run\settings.ini
+Using specified input file: C:\WRDAPP\GSFLOW-GRASS-master\Run\settings.ini
+Importing DEM and generating hydrologic correction
+WARNUNG: Die Rasterkarte <DEM_original_import> existiert bereits und wird
+         überschrieben
+Importing raster map <DEM_original_import>...
+ 100%
+ 100%
+ 100%
+Load elevation map
+ 100%
+Remove one cell extremas
+ 100%
+Set edge points
+ 100%
+A* Search...
+ 100%
+Processing 110711 sinks
+ 100%
+Write conditioned DEM
+ 100%
+ABSCHNITT 1a (von 4): Initiiere den Speicher.
+ABSCHNITT 1b (of 4): Ermittle den Fluß aus der Karte heraus.
+ 100%
+SECTION 2: A* Search.
+ 100%
+ABSCHNITT 3: Akkumuliere Oberflächenabfluß mit SFD.
+ 100%
+ABSCHNITT 4: Schließe Karten.
+ 100%
+ 100%
+Benenne raster <tmp> in <DEM> um
+ 100%
+WARNUNG: Unable to rename null file
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\.tmp/unknown\2804.1'
+         to
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\cell_misc\accumulation_onmap\nullcmpr':
+         File exists
+WARNUNG: Unable to rename cell file
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\.tmp/unknown\2804.0'
+         to
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\fcell\accumulation_onmap':
+         File exists
+ 100%
+WARNUNG: Unable to rename null file
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\.tmp/unknown\2872.1'
+         to
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\cell_misc\DEM\nullcmpr':
+         File exists
+WARNUNG: Unable to rename cell file
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\.tmp/unknown\2872.0'
+         to 'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\fcell\DEM':
+         File exists
+ 100%
+WARNUNG: Unable to rename null file
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\.tmp/unknown\10288.1'
+         to
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\cell_misc\accumulation_onmap\nullcmpr':
+         File exists
+WARNUNG: Unable to rename cell file
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\.tmp/unknown\10288.0'
+         to
+         'C:\Users\jonas\Documents\grassdata\grass_rgb\jonas\fcell\accumulation_onmap':
+         File exists
+Loading input raster maps...
+ 100%
+Initializing A* search...
+ 100%
+A* Search...
+ 100%
+Extracting streams...
+ 100%
+Thinning stream segments...
+ 100%
+Schreibe Ausgabe-Rasterkarten...
+ 100%
+Writing vector map <streams_all>...
+WARNUNG: Vektorkarte <streams_all> existiert bereits und wird
+         überschrieben.
+ 100%
+Writing attribute data...
+Erstelle Topologie für die Vektorkarte <streams_all@jonas>...
+Registriere Primitive...
+Memory swap calculation (may take some time)...
+Lese Rasterkarte <draindir> ...
+ 100%
+Calculating basins using streams...
+Lese Rasterkarte <streams_all> ...
+ 100%
+Finding nodes...
+ 100%
+Delineating basins for 0 outlets...
+ 100%
+Schreibe Rasterkarte <basins_all>...
+ 100%
+WARNUNG: Vektorkarte <basins_all> existiert bereits und wird überschrieben.
+Extrahiere Flächen ...
+ 100%
+Schreibe Flächen...
+ 100%
+Erstelle Topologie für die Vektorkarte <basins_all@jonas>...
+Registriere Primitive...
+r.to.vect komplett.
+Erstelle Topologie f³r die Vektorkarte <streams_all@jonas>...
+Registriere Primitive...
+WARNUNG: Values in column <x1> will be overwritten
+WARNUNG: Values in column <y1> will be overwritten
+Lese Objekte...
+ 100%
+Aktualisiere die Datenbank...
+ 100%
+0 Datensätze aktualisiert/eingefügt (Layer 1).
+WARNUNG: Values in column <x2> will be overwritten
+WARNUNG: Values in column <y2> will be overwritten
+Lese Objekte...
+ 100%
+Aktualisiere die Datenbank...
+ 100%
+0 Datensätze aktualisiert/eingefügt (Layer 1).
+Traceback (most recent call last):
+  File "C:\Users\jonas\AppData\Roaming\GRASS7\addons/scripts/v.stream.network.py", line 208, in <module>
+    main()
+  File "C:\Users\jonas\AppData\Roaming\GRASS7\addons/scripts/v.stream.network.py", line 174, in main
+    cats = colValues[:,colNames == 'cat'].astype(int).squeeze() # river number
+IndexError: too many indices for array
+Traceback (most recent call last):
+  File "domain_builder\buildDomainGRASS.py", line 154, in <module>
+    v.stream_network(map=streams_all)
+  File "C:\Program Files\GRASS GIS 7.6\etc\python\grass\pygrass\modules\interface\module.py", line 649, in __call__
+    return self.run()
+  File "C:\Program Files\GRASS GIS 7.6\etc\python\grass\pygrass\modules\interface\module.py", line 770, in run
+    self.wait()
+  File "C:\Program Files\GRASS GIS 7.6\etc\python\grass\pygrass\modules\interface\module.py", line 791, in wait
+    module=self.name, errors=stderr)
+grass.exceptions.CalledModuleError: Module run v.stream.network v.stream.network map=streams_all upstream_easting_column=x1 upstream_northing_column=y1 downstream_easting_column=x2 downstream_northing_column=y2 tostream_cat_column=tostream ended with error
+Process ended with non-zero return code 1. See errors in the (error) output
